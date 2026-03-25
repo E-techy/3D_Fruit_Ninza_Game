@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blade Orchard 3D</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <div id="knifeCursor" class="knife-cursor" aria-hidden="true"></div>
+
+  <div class="hud">
+    <div class="stat-card">
+      <span>Score</span>
+      <strong id="scoreValue">0</strong>
+    </div>
+    <div class="stat-card">
+      <span>Level</span>
+      <strong id="levelValue">1</strong>
+    </div>
+    <div class="stat-card">
+      <span>Lives</span>
+      <strong id="livesValue">3</strong>
+    </div>
+    <div class="stat-card">
+      <span>Combo</span>
+      <strong id="comboValue">x1</strong>
+    </div>
+    <div class="stat-card stat-card--wide">
+      <span>Goal</span>
+      <strong id="goalValue">0 / 0</strong>
+    </div>
+    <div class="stat-card">
+      <span>Timer</span>
+      <strong id="timerValue">00:00</strong>
+    </div>
+  </div>
+
+  <button id="pauseButton" class="pause-button" type="button">Pause</button>
+
+  <div id="floatingLayer" class="floating-layer" aria-hidden="true"></div>
+
+  <div id="statusText" class="status-text">Use your knife to slice fruits, avoid bombs, and clear level goals before time runs out.</div>
+
+  <div id="menuOverlay" class="menu-overlay is-visible">
+    <div class="menu-background-glow"></div>
+    <div class="menu-card">
+      <p class="menu-eyebrow">Blade Orchard 3D</p>
+      <h1 id="menuTitle">Slice To Survive</h1>
+      <p id="menuSubtitle" class="menu-subtitle">Cut fruits, chain combos, avoid bomb fruits, and complete each timed level objective.</p>
+
+      <div class="menu-actions">
+        <button id="playButton" class="menu-btn menu-btn--primary" type="button">Start Run</button>
+        <button id="resumeButton" class="menu-btn" type="button">Resume</button>
+        <button id="restartButton" class="menu-btn" type="button">Restart</button>
+      </div>
+
+      <div class="settings-grid">
+        <label class="setting-row" for="settingMusicEnabled">
+          <span>Music</span>
+          <input id="settingMusicEnabled" type="checkbox" checked>
+        </label>
+        <label class="setting-row" for="settingSfxEnabled">
+          <span>Sound Effects</span>
+          <input id="settingSfxEnabled" type="checkbox" checked>
+        </label>
+        <label class="setting-row" for="settingCameraShake">
+          <span>Camera Shake</span>
+          <input id="settingCameraShake" type="checkbox" checked>
+        </label>
+        <label class="setting-row" for="settingTrailEnabled">
+          <span>Knife Trail</span>
+          <input id="settingTrailEnabled" type="checkbox" checked>
+        </label>
+        <label class="setting-row setting-row--range" for="settingMasterVolume">
+          <span>Master Volume</span>
+          <input id="settingMasterVolume" type="range" min="0" max="1" step="0.01" value="0.8">
+          <output id="settingMasterVolumeLabel" for="settingMasterVolume">80%</output>
+        </label>
+        <label class="setting-row" for="settingMusicTrack">
+          <span>Music Track</span>
+          <select id="settingMusicTrack">
+            <option value="games">Games Music</option>
+            <option value="scifi">Sci-Fi Game</option>
+          </select>
+        </label>
+        <label class="setting-row" for="settingDifficulty">
+          <span>Difficulty</span>
+          <select id="settingDifficulty">
+            <option value="casual">Casual</option>
+            <option value="normal" selected>Normal</option>
+            <option value="insane">Insane</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

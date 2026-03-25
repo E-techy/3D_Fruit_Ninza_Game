@@ -1,0 +1,14 @@
+{
+  "name": "3d_fruit_ninza_game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "3D Fruit Ninja style browser game with downloadable assets",
+  "type": "module",
+  "scripts": {
+    "assets:download": "node ./scripts/download-assets.mjs",
+    "assets:download:mac": "bash ./scripts/download-assets.sh",
+    "assets:download:win": "powershell -ExecutionPolicy Bypass -File ./scripts/download-assets.ps1",
+    "prestart": "node ./scripts/download-assets.mjs",
+    "start": "node ./scripts/serve.mjs"
+  }
+}
